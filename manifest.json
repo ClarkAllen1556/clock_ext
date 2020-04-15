@@ -1,0 +1,24 @@
+{
+  "description": "In browser timepiece",
+  "homepage_url": "http://www.theallenc.com",
+  "manifest_version": 2,
+  "name": "Clock",
+  "permissions": [
+    // "background",
+    // "debugger"
+  ],
+ "content_scripts": [
+  {
+    "matches": [
+      "*://*.mozilla.org/*"
+    ],
+    "js": [
+      "./js/content.js"
+    ]
+  }],
+  "background": {
+    "page": "background.html"
+  },
+  "icons": {},
+  "version": "1.0"
+}
