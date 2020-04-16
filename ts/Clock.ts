@@ -35,11 +35,7 @@ export class Clock {
   }
 
   private isPM() {
-    if (this.hh >= 12) {
-      return true;
-    }
-
-    return false;
+    return this.hh >= 12 ? true : false;
   }
 
   private formatTime(format : TIME_FORMAT) : string {
@@ -79,11 +75,13 @@ export class Clock {
     return this.formatTime(format);
   }
 
-  public getClock() : any {
+  public getClock() : object {
     return this.getClone(this);
   }
 
   public logTime(): void {
+    this.setTime();
+
     console.log(`${this.hh}:${this.mm}`)
   }
 

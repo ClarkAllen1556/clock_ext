@@ -3,21 +3,18 @@
 import { Clock } from "./Clock.js";
 import { TIME_FORMAT } from "./enum.js";
 // background-script.js
-var contentPort : browser.runtime.Port;
-var clock = new Clock(new Date());
-
-function portConnected(port : browser.runtime.Port) {
-  contentPort = port;
-  contentPort.postMessage({ msg: "Connected to content script port >> " + JSON.stringify(port) });
-  contentPort.postMessage({ msg: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_12) });
-
-  contentPort.onMessage.addListener( (resp : any) => {
-    console.log("Background Port RESP handler >>");
-    console.log(JSON.stringify(resp));
-    contentPort.postMessage({ msg: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_12) });
-  });
-
-  setInterval(() => contentPort.postMessage({ msg: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_12) }), 1000);
-}
+let clock = new Clock(new Date());
 
 browser.runtime.onConnect.addListener(portConnected);
+
+function setClockText() {
+  browser.browserAction.setBadgeText({ text: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });
+  browser.browserAction.setTitle({ title: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });
+}
+
+function portConnected(port: browser.runtime.Port) {
+  port.postMessage({ msg: `BACKGROUND SCRIPT MESSAGE RECEIVED : ${ clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) } >> `});
+
+  setInterval( () => port.postMessage({ msg: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_12) }), 1000);
+  setInterval(setClockText, 1000);
+}

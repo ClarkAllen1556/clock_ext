@@ -25,10 +25,7 @@ export class Clock {
         this.pm = this.isPM();
     }
     isPM() {
-        if (this.hh >= 12) {
-            return true;
-        }
-        return false;
+        return this.hh >= 12 ? true : false;
     }
     formatTime(format) {
         let rawTime = this.padZeros();
@@ -64,6 +61,7 @@ export class Clock {
         return this.getClone(this);
     }
     logTime() {
+        this.setTime();
         console.log(`${this.hh}:${this.mm}`);
     }
     /**

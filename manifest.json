@@ -4,6 +4,14 @@
   "manifest_version": 2,
   "name": "Clock",
   "permissions": [],
+  "browser_action": {
+    "default_icon": {
+      "19": "button/geo-19.png",
+      "38": "button/geo-38.png"
+    },
+    "default_title": "Whereami?",
+    "size": 32
+  },
  "content_scripts": [
   {
     "matches": [
