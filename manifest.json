@@ -3,10 +3,7 @@
   "homepage_url": "http://www.theallenc.com",
   "manifest_version": 2,
   "name": "Clock",
-  "permissions": [
-    // "background",
-    // "debugger"
-  ],
+  "permissions": [],
  "content_scripts": [
   {
     "matches": [
