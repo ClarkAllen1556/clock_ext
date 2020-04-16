@@ -18,7 +18,7 @@ export class Clock {
 
     this.getFormattedTime = this.getFormattedTime.bind(this);
     this.logTime = this.logTime.bind(this);
-    this.clockStringify = this.clockStringify.bind(this);
+    this.padZeros = this.padZeros.bind(this);
     this.formatTime = this.formatTime.bind(this);
     this.getClock = this.getClock.bind(this);
     this.getClone = this.getClone.bind(this);
@@ -43,14 +43,12 @@ export class Clock {
   }
 
   private formatTime(format : TIME_FORMAT) : string {
-    this.setTime();
-
-    let rawTime = JSON.parse(this.clockStringify());
+    let rawTime = this.padZeros();
 
     switch (format) {
       case TIME_FORMAT.HH_MM_SS_12:
         if(this.pm) {
-          rawTime.hh = rawTime.hh - 12;
+          rawTime.hh = rawTime.hh == 12 ? rawTime.hh : rawTime.hh - 12;
           rawTime.period = "PM";
         } else {
           rawTime.period = "AM";
@@ -62,10 +60,9 @@ export class Clock {
     return `${rawTime.hh}:${rawTime.mm}:${rawTime.ss}`;
   }
 
-  public clockStringify() : string {
+  public padZeros() : any {
     this.setTime();
 
-    // --- create shallow copy
     let timeData : any = this.getClock();
 
     if(timeData.mm < 10) {
@@ -75,7 +72,7 @@ export class Clock {
       timeData.ss = "0" + timeData.ss;
     }
 
-    return JSON.stringify(timeData);
+    return this.getClone(timeData);
   }
 
   public getFormattedTime(format : TIME_FORMAT) : string {
