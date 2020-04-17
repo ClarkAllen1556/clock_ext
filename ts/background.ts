@@ -6,6 +6,9 @@ import { TIME_FORMAT } from "./enum.js";
 let clock = new Clock(new Date());
 
 browser.runtime.onConnect.addListener(portConnected);
+browser.browserAction.onClicked.addListener(() => {
+  browser.tabs.create({ url: "../html/timeContent.html" })
+});
 
 function setClockText() {
   browser.browserAction.setBadgeText({ text: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });

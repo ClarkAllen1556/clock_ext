@@ -4,11 +4,13 @@ import { TIME_FORMAT } from "./enum.js";
 // background-script.js
 let clock = new Clock(new Date());
 browser.runtime.onConnect.addListener(portConnected);
+browser.browserAction.onClicked.addListener(() => {
+    browser.tabs.create({ url: "../html/timeContent.html" });
+});
 function setClockText() {
     browser.browserAction.setBadgeText({ text: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });
     browser.browserAction.setTitle({ title: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });
 }
-// browser.browserAction.onClicked.addListener(increment);
 function portConnected(port) {
     port.postMessage({ msg: `BACKGROUND SCRIPT MESSAGE RECEIVED : ${clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24)} >> ` });
     setInterval(() => port.postMessage({ msg: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_12) }), 1000);

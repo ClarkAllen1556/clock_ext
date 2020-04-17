@@ -6,23 +6,24 @@
   "permissions": [],
   "browser_action": {
     "default_icon": {
-      "19": "button/geo-19.png",
-      "38": "button/geo-38.png"
+      "19": "icon.svg"
     },
-    "default_title": "Whereami?",
-    "size": 32
+    // "default_tab": "html/popup.html",
+    "default_title": "Clock?"
   },
  "content_scripts": [
   {
     "matches": [
-      "*://*.mozilla.org/*"
+      "<all_urls>"
     ],
     "js": [
+      // "./js/jquery-3.5.0.js",
       "./js/content.js"
+      // "./js/timeContent.ts"
     ]
   }],
   "background": {
-    "page": "background.html"
+    "page": "html/background.html"
   },
   "icons": {},
   "version": "1.0"
