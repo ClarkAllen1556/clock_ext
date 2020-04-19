@@ -14,10 +14,6 @@ console.log("Content script loaded >>")
 // btn.setAttribute("text", "this is a the new button");
 // $("body").append(btn);
 
-$
-
-$("body").add(thing)
-
 // --- internal messaging
 var contentPort = browser.runtime.connect({ name: "cs_port" });
 contentPort.postMessage({ msg: `${Date.now} >> CONTENT PORT CONNECT` });
