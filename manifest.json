@@ -8,7 +8,7 @@
     "default_icon": {
       "19": "icon.svg"
     },
-    // "default_tab": "html/timeContent.html",
+    "default_popup": "./html/popup.html",
     "default_title": "Clock?"
   },
  "content_scripts": [
