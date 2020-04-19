@@ -14,8 +14,8 @@
     "clean": "rm -f js/*.js"
   },
   "devDependencies": {
+    "@types/jquery": "^3.3.35",
     "@types/node": "^13.11.1",
-    "cash-dom": "^7.0.1",
     "web-ext-types": "^3.2.1"
   }
 }

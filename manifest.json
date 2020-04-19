@@ -8,7 +8,7 @@
     "default_icon": {
       "19": "icon.svg"
     },
-    // "default_tab": "html/popup.html",
+    // "default_tab": "html/timeContent.html",
     "default_title": "Clock?"
   },
  "content_scripts": [
@@ -17,7 +17,7 @@
       "<all_urls>"
     ],
     "js": [
-      // "./js/jquery-3.5.0.js",
+      "./assets/js/jquery-3.5.0.min.js",
       "./js/content.js"
       // "./js/timeContent.ts"
     ]

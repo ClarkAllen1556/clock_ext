@@ -2,13 +2,18 @@
 
 import { Clock } from "./Clock.js";
 import { TIME_FORMAT } from "./enum.js";
+import $ from "jquery";
+
 // background-script.js
 let clock = new Clock(new Date());
 
+browser.browserAction.onClicked.addListener(openPopup);
+
 browser.runtime.onConnect.addListener(portConnected);
-browser.browserAction.onClicked.addListener(() => {
-  browser.tabs.create({ url: "../html/timeContent.html" })
-});
+
+function openPopup() {
+  browser.browserAction.openPopup();
+}
 
 function setClockText() {
   browser.browserAction.setBadgeText({ text: clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24) });
