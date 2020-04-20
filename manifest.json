@@ -3,10 +3,12 @@
   "homepage_url": "https://github.com/ClarkAllen1556/clock_ext",
   "manifest_version": 2,
   "name": "Clock",
-  "permissions": [],
+  "permissions": [
+    "storage"
+  ],
   "browser_action": {
     "default_icon": {
-      "19": "./assets/icons/icon.svg"
+      "16": "./assets/icon_2.svg"
     },
     "default_popup": "./html/popup.html",
     "default_title": "Clock?"
@@ -14,6 +16,12 @@
   "background": {
     "page": "html/popup.html"
   },
-  "icons": {},
-  "version": "1.0"
+  "options_ui": {
+    "page": "./html/options.html",
+    "browser_style": true
+  },
+  "icons": {
+    "19": "./assets/icon_2.svg"
+  },
+  "version": "1.0.2"
 }

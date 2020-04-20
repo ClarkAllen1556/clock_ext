@@ -1,14 +1,16 @@
 import { Clock } from "./Clock.js";
-import { TIME_FORMAT } from "./enum.js";
 
 const clockEL = document.createElement("div");
+const placeEL = document.getElementById("time-placeholder");
 
-setInterval(() => {
-  const clock = new Clock(new Date());
+placeEL?.setAttribute("style", "font-size: 50px");
 
-  clockEL.innerText = clock.getFormattedTime(TIME_FORMAT.HH_MM_SS_24);
-  window.console.log(clockEL.innerText);
+setInterval(sendTime, 500);
 
-  document.getElementById("time-placeholder")?.appendChild(clockEL);
-}, 500);
+async function sendTime() {
+    const userSettings : any = await browser.storage.local.get("TIME_FORMAT");
 
+    const clock = new Clock(new Date());
+    clockEL.innerText = clock.getFormattedTime(userSettings.TIME_FORMAT);
+    placeEL?.appendChild(clockEL);
+}

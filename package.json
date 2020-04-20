@@ -1,4 +1,5 @@
-{"name": "clock_ext",
+{
+  "name": "clock_ext",
   "version": "1.0.2",
   "description": "In-browser timepiece.",
   "homepage": "https://github.com/ClarkAllen1556/clock_ext",
@@ -13,7 +14,9 @@
     "clean": "rm -f js/*.js",
     "lint": "tslint -p ."
   },
-  "dependencies": {
-    "tslint": "^6.1.1"
+  "dependencies": {},
+  "devDependencies": {
+    "tslint": "^6.1.1",
+    "web-ext-types": "^3.2.1"
   }
 }

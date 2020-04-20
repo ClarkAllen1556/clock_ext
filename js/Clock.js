@@ -1,4 +1,3 @@
-import { TIME_FORMAT } from "./enum.js";
 /**
  * Holds basic system/browser time data
  */
@@ -38,16 +37,26 @@ export class Clock {
     _formatTime(format) {
         const rawTime = this.padZeros();
         switch (format) {
-            case TIME_FORMAT.HH_MM_SS_12:
+            case "HH_MM_SS_12":
                 if (this._pm) {
                     rawTime._hh = rawTime._hh === 12 ? rawTime._hh : rawTime._hh - 12;
-                    rawTime.period = "_pm";
+                    rawTime.period = "PM";
                 }
                 else {
                     rawTime.period = "AM";
                 }
                 return `${rawTime._hh}:${rawTime._mm}:${rawTime._ss} ${rawTime.period}`;
-            default:
+            case "HH_MM_12":
+                if (this._pm) {
+                    rawTime._hh = rawTime._hh === 12 ? rawTime._hh : rawTime._hh - 12;
+                    rawTime.period = "PM";
+                }
+                else {
+                    rawTime.period = "AM";
+                }
+                return `${rawTime._hh}:${rawTime._mm} ${rawTime.period}`;
+            case "HH_MM_24":
+                return `${rawTime._hh}:${rawTime._mm}`;
         }
         return `${rawTime._hh}:${rawTime._mm}:${rawTime._ss}`;
     }

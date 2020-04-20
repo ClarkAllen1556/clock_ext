@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+
+<body>
+  <form id="time-format-radio">
+    <p>Time Format:</p>
+    <input type="radio" id="HH_MM_SS_12" name="time-format" value="HH_MM_SS_12">
+    <label for="ss-12"> 12 Hour w/seconds </label>
+    <br>
+    <input type="radio" id="HH_MM_12" name="time-format" value="HH_MM_12">
+    <label for="no-ss-12"> 12 Hour wo/seconds </label>
+    <br>
+    <input type="radio" id="HH_MM_SS_24" name="time-format" value="HH_MM_SS_24">
+    <label for="ss-24"> 24 Hour w/seconds </label>
+    <br>
+    <input type="radio" id="HH_MM_24" name="time-format" value="HH_MM_24">
+    <label for="no-ss-24"> 24 Hour wo/seconds </label>
+    <br>
+    <button type="submit" id="save-btn"> Save? </button>
+  </form>
+  <script type="module" src="../js/options.js"></script>
+</body>
+
+</html>
