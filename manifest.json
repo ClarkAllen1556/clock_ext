@@ -1,6 +1,6 @@
 {
   "description": "Test",
-  "homepage_url": "http://www.theallenc.com",
+  "homepage_url": "https://github.com/ClarkAllen1556/clock_ext",
   "manifest_version": 2,
   "name": "Clock",
   "permissions": [],
