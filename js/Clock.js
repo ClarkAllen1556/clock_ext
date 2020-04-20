@@ -4,80 +4,81 @@ import { TIME_FORMAT } from "./enum.js";
  */
 export class Clock {
     constructor(date) {
-        this.hh = date.getHours();
-        this.mm = date.getMinutes();
-        this.ss = date.getSeconds();
-        this.pm = this.isPM();
-        this.setTime();
+        this._hh = date.getHours();
+        this._mm = date.getMinutes();
+        this._ss = date.getSeconds();
+        this._pm = this._isPM();
+        this._setTime();
         this.getFormattedTime = this.getFormattedTime.bind(this);
         this.logTime = this.logTime.bind(this);
         this.padZeros = this.padZeros.bind(this);
-        this.formatTime = this.formatTime.bind(this);
+        this._formatTime = this._formatTime.bind(this);
         this.getClock = this.getClock.bind(this);
-        this.getClone = this.getClone.bind(this);
+        this._getClone = this._getClone.bind(this);
         this.getClockData = this.getClockData.bind(this);
-        this.isPM = this.isPM.bind(this);
+        this._isPM = this._isPM.bind(this);
     }
-    setTime() {
+    _setTime() {
         const date = new Date();
-        this.hh = date.getHours();
-        this.mm = date.getMinutes();
-        this.ss = date.getSeconds();
-        this.pm = this.isPM();
+        this._hh = date.getHours();
+        this._mm = date.getMinutes();
+        this._ss = date.getSeconds();
+        this._pm = this._isPM();
     }
-    isPM() {
-        return this.hh >= 12 ? true : false;
+    _isPM() {
+        return this._hh >= 12 ? true : false;
     }
-    formatTime(format) {
+    /**
+     * Returns a shallow-copy of specified object
+     * @param obj Object to be shallow-copied
+     */
+    _getClone(obj) {
+        return JSON.parse(JSON.stringify(obj));
+    }
+    _formatTime(format) {
         const rawTime = this.padZeros();
         switch (format) {
             case TIME_FORMAT.HH_MM_SS_12:
-                if (this.pm) {
-                    rawTime.hh = rawTime.hh === 12 ? rawTime.hh : rawTime.hh - 12;
-                    rawTime.period = "PM";
+                if (this._pm) {
+                    rawTime._hh = rawTime._hh === 12 ? rawTime._hh : rawTime._hh - 12;
+                    rawTime.period = "_pm";
                 }
                 else {
                     rawTime.period = "AM";
                 }
-                return `${rawTime.hh}:${rawTime.mm}:${rawTime.ss} ${rawTime.period}`;
+                return `${rawTime._hh}:${rawTime._mm}:${rawTime._ss} ${rawTime.period}`;
             default:
         }
-        return `${rawTime.hh}:${rawTime.mm}:${rawTime.ss}`;
+        return `${rawTime._hh}:${rawTime._mm}:${rawTime._ss}`;
     }
     padZeros() {
-        this.setTime();
+        this._setTime();
         const timeData = this.getClock();
-        if (timeData.mm < 10) {
-            timeData.mm = "0" + timeData.mm;
+        if (timeData._mm < 10) {
+            timeData._mm = "0" + timeData._mm;
         }
-        if (timeData.ss < 10) {
-            timeData.ss = "0" + timeData.ss;
+        if (timeData._ss < 10) {
+            timeData._ss = "0" + timeData._ss;
         }
-        return this.getClone(timeData);
+        return this._getClone(timeData);
     }
     getFormattedTime(format) {
-        return this.formatTime(format);
+        return this._formatTime(format);
     }
     getClock() {
-        return this.getClone(this);
+        return this._getClone(this);
     }
     getClockData() {
-        this.setTime();
+        this._setTime();
         return {
-            hh: this.hh,
-            mm: this.mm,
-            ss: this.ss,
-            pm: this.pm
+            _hh: this._hh,
+            _mm: this._mm,
+            _ss: this._ss,
+            _pm: this._pm
         };
     }
     logTime() {
-        this.setTime();
-        console.log(`${this.hh}:${this.mm}`);
-    }
-    /**
-     * Returns a shallow copy of the Clock object
-     */
-    getClone(obj) {
-        return JSON.parse(JSON.stringify(obj));
+        this._setTime();
+        console.log(`${this._hh}:${this._mm}`);
     }
 }
