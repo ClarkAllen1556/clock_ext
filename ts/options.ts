@@ -1,4 +1,3 @@
-document.addEventListener("DOMContentLoaded", loadOptions);
 document.getElementById("time-format-radio")?.addEventListener("submit", saveOptions);
 
 function saveOptions(e : Event ) {

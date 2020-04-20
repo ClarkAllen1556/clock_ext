@@ -12,6 +12,7 @@
     "clean-build": "yarn clean && yarn build",
     "build": "tsc --project .",
     "clean": "rm -f js/*.js",
+    "deep-clean": "rm -rf js/*",
     "lint": "tslint -p ."
   },
   "dependencies": {},
