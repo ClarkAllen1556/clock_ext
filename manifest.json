@@ -1,5 +1,5 @@
 {
-  "description": "In browser timepiece",
+  "description": "Test",
   "homepage_url": "http://www.theallenc.com",
   "manifest_version": 2,
   "name": "Clock",
@@ -11,18 +11,8 @@
     "default_popup": "./html/popup.html",
     "default_title": "Clock?"
   },
- "content_scripts": [
-  {
-    "matches": [
-      "<all_urls>"
-    ],
-    "js": [
-      "./assets/js/jquery-3.5.0.min.js",
-      "./js/content.js"
-    ]
-  }],
   "background": {
-    "page": "html/background.html"
+    "page": "html/popup.html"
   },
   "icons": {},
   "version": "1.0"

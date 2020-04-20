@@ -15,10 +15,11 @@ export class Clock {
         this.formatTime = this.formatTime.bind(this);
         this.getClock = this.getClock.bind(this);
         this.getClone = this.getClone.bind(this);
+        this.getClockData = this.getClockData.bind(this);
         this.isPM = this.isPM.bind(this);
     }
     setTime() {
-        let date = new Date();
+        const date = new Date();
         this.hh = date.getHours();
         this.mm = date.getMinutes();
         this.ss = date.getSeconds();
@@ -28,11 +29,11 @@ export class Clock {
         return this.hh >= 12 ? true : false;
     }
     formatTime(format) {
-        let rawTime = this.padZeros();
+        const rawTime = this.padZeros();
         switch (format) {
             case TIME_FORMAT.HH_MM_SS_12:
                 if (this.pm) {
-                    rawTime.hh = rawTime.hh == 12 ? rawTime.hh : rawTime.hh - 12;
+                    rawTime.hh = rawTime.hh === 12 ? rawTime.hh : rawTime.hh - 12;
                     rawTime.period = "PM";
                 }
                 else {
@@ -45,7 +46,7 @@ export class Clock {
     }
     padZeros() {
         this.setTime();
-        let timeData = this.getClock();
+        const timeData = this.getClock();
         if (timeData.mm < 10) {
             timeData.mm = "0" + timeData.mm;
         }
@@ -59,6 +60,15 @@ export class Clock {
     }
     getClock() {
         return this.getClone(this);
+    }
+    getClockData() {
+        this.setTime();
+        return {
+            hh: this.hh,
+            mm: this.mm,
+            ss: this.ss,
+            pm: this.pm
+        };
     }
     logTime() {
         this.setTime();

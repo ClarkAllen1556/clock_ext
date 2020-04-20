@@ -1,21 +1,18 @@
-{
-  "name": "clock_ext",
-  "version": "1.0.0",
+{"name": "clock_ext",
+  "version": "1.0.2",
   "description": "In-browser timepiece.",
   "main": "manifest.json",
   "author": "AClark",
   "license": "MIT",
   "private": false,
-  "dependencies": {},
   "scripts": {
     "start": "web-ext -v run",
     "clean-build": "yarn clean && yarn build",
     "build": "tsc --project .",
-    "clean": "rm -f js/*.js"
+    "clean": "rm -f js/*.js",
+    "lint": "tslint -p ."
   },
-  "devDependencies": {
-    "@types/jquery": "^3.3.35",
-    "@types/node": "^13.11.1",
-    "web-ext-types": "^3.2.1"
+  "dependencies": {
+    "tslint": "^6.1.1"
   }
 }
