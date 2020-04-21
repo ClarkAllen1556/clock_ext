@@ -13,7 +13,8 @@
     "build": "tsc --project .",
     "clean": "rm -f js/*.js",
     "deep-clean": "rm -rf js/* && rm -rf build/*",
-    "lint": "tslint -p ."
+    "lint": "tslint -p .",
+    "package": "web-ext build -a ./build -v -i ./ts/* ./node_modules yarn.lock tslint* .git* ./.git/"
   },
   "dependencies": {},
   "devDependencies": {
