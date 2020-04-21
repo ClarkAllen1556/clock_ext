@@ -1,21 +1,32 @@
 # Clock
 
-A simple in-browser timepiece. Supports both twelve and twenty-four hour formats.
+A simple in-browser timepiece that supports both twelve and twenty-four hour formats.
 
 Formats can be selected in the addon's preferences page.
 
-## Running
+## Installation
+
+> Dependencies: `yarn`, `TypeScript`
+
+This project was developed using TypeScript.
+
+### Using source
+
+This will start a FireFox development environment with the addon no installed. If you wish to install a persistent version of the addon please install it from the FireFox Add-On storefront.
 
 Using yarn:
 
-From the root run:
+From the root project directory run:
 
-`yarn` -> `yarn start`
+```bash
+# install needed dependencies:
+~$ yarn
+# compile the addon source:
+~$ yarn build
+# start the addon in a FireFox development environment:
+~$ yarn start
+```
 
-## Building
+### From FireFox Add-On's storefront
 
-Using yarn:
-
-From the root run:
-
-`yarn` -> `yarn build` -> `yarn start`
+[Store Page](https://addons.mozilla.org/en-US/firefox/addon/in-browser-clock/) (Mozilla).

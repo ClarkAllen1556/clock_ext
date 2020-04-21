@@ -23,6 +23,6 @@
     "browser_style": true
   },
   "icons": {
-    "48": "./assets/icon_2.svg"
+    "128": "./assets/icon_2.png"
   }
 }
