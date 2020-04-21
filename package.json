@@ -1,6 +1,6 @@
 {
   "name": "clock_ext",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "In-browser timepiece.",
   "homepage": "https://github.com/ClarkAllen1556/clock_ext",
   "main": "manifest.json",
@@ -14,7 +14,7 @@
     "clean": "rm -f js/*.js",
     "deep-clean": "rm -rf js/* && rm -rf build/*",
     "lint": "tslint -p .",
-    "package": "web-ext build -a ./build -v -i ./ts/* ./node_modules yarn.lock tslint* .git* ./.git/"
+    "package": "yarn clean-build && web-ext build -a ./build -v -i ./ts ./node_modules yarn.lock tslint* .git* ./.git/"
   },
   "dependencies": {},
   "devDependencies": {

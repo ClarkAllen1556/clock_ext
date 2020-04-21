@@ -1,6 +1,7 @@
 {
   "description": "In-browser timepiece",
   "homepage_url": "https://github.com/ClarkAllen1556/clock_ext",
+  "version": "1.2.1",
   "manifest_version": 2,
   "name": "In-Browser Timepiece",
   "permissions": [
@@ -23,6 +24,5 @@
   },
   "icons": {
     "48": "./assets/icon_2.svg"
-  },
-  "version": "1.2.0"
+  }
 }
