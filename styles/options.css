@@ -1,0 +1,19 @@
+button {
+  color: #ffffff;
+  background-color: #0060df;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  height: 24px;
+  font-size: 11px;
+  padding: 0 8px;
+  margin: 8px;
+  width: auto;
+}
+
+.enabled {
+  opacity: 100%;
+}
+
+.disabled {
+  opacity: 40%;
+}

@@ -1,6 +1,6 @@
 {
   "name": "clock_ext",
-  "version": "1.0.2",
+  "version": "1.2.0",
   "description": "In-browser timepiece.",
   "homepage": "https://github.com/ClarkAllen1556/clock_ext",
   "main": "manifest.json",
