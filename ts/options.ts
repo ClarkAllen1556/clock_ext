@@ -44,11 +44,11 @@ function toggleButton() {
   console.log(saved);
   const btn: HTMLElement = document.getElementById("save-btn")!;
 
-  if (saved){
+  if (saved) {
     (btn as HTMLInputElement).disabled = true;
     btn.setAttribute("class", "disabled");
   }
-  else{
+  else {
     (btn as HTMLInputElement).disabled = false;
     btn.setAttribute("class", "enabled");
   }
